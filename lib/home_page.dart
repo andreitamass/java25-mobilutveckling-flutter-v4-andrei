@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
               ),
 
               //Creates button which takes user to another site where DetailsComic will open
-              //Flutter Navigator
+              //Flutter Navigator, Interactive widget
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -55,6 +55,13 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 child: Text('More Information'),
+              ),
+              //Interactive widget which will add comic to favorites later
+              IconButton(
+                onPressed: () {
+                  print('Comic added to favorites');
+                },
+                icon: Icon(Icons.star),
               ),
             ],
           ),
