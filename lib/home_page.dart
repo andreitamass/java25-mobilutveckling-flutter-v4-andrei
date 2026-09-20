@@ -75,8 +75,20 @@ class HomePage extends StatefulWidget {
                       width: 100,
                       height: 100,
                     )
+                    : selectedList[index] == 'One Piece'
+                    ? Image.network(
+                      'https://m.media-amazon.com/images/I/91NxYvUNf6L._SL1500_.jpg',
+                      width: 100,
+                      height: 100,
+                    )
+                    : selectedList[index] == 'Bleach'
+                    ? Image.network(
+                      'https://m.media-amazon.com/images/I/81vbN16NtXL._SL1500_.jpg',
+                      width: 100,
+                      height: 100,
+                    )
                     : null,
-
+                    
                     title: Text(
                       //Get title from our list for manga and comics
                       selectedList[index],
