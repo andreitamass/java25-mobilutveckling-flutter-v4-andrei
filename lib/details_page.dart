@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'details_page.dart';
 
 class DetailsComic extends StatelessWidget {
 
@@ -9,6 +8,7 @@ class DetailsComic extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      //Creates bar with Details
       appBar: AppBar(
         title: Text('Details'),
       ),

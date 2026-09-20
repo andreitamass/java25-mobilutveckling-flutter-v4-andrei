@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'details_page.dart';
 
 //StatlessWidget need due to the state of app not needing change
 class HomePage extends StatelessWidget {
@@ -33,12 +34,27 @@ class HomePage extends StatelessWidget {
               ),
               //The space between text and card
               SizedBox(height: 10),
+
               //Restricting descriptions to a widht of 300
               SizedBox(
                 width: 300,
                 child: Text(
                   'Naruto is a famous Japanese manga and anime series created by Masashi Kishimoto. It is an epic adventure about ninjas, friendship, and growing up'
                 ),
+              ),
+
+              //Creates button which takes user to another site where DetailsComic will open
+              //Flutter Navigator
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsComic(),
+                    ),
+                  );
+                },
+                child: Text('More Information'),
               ),
             ],
           ),
