@@ -88,7 +88,7 @@ class HomePage extends StatefulWidget {
                       height: 100,
                     )
                     : null,
-                    
+
                     title: Text(
                       //Get title from our list for manga and comics
                       selectedList[index],
@@ -108,7 +108,9 @@ class HomePage extends StatefulWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailsComic(),
+                          builder: (context) => DetailsComic(
+                            title: selectedList[index],
+                          ),
                         ),
                       );
                     },

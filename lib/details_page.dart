@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailsComic extends StatelessWidget {
+  final String title;
 
-  const DetailsComic({super.key});
+  const DetailsComic({
+    super.key,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,7 @@ class DetailsComic extends StatelessWidget {
         title: Text('Details'),
       ),
       body: Center(
-        child: Text('Details about Naruto'),
+        child: Text('Details about $title'),
       ),
     );
   }
