@@ -17,14 +17,29 @@ class HomePage extends StatelessWidget {
         child: Card(
           child: Column(
             children: [
-              Text('Naruto'),
+              //Fontsize for text and style
+              Text(
+                'Naruto',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                ),
+              ),
               //Image from internet
               Image.network(
                 'https://m.media-amazon.com/images/I/8141AtkCPLL._SL1500_.jpg',
                 width: 200,
                 height: 200,
               ),
-
+              //The space between text and card
+              SizedBox(height: 10),
+              //Restricting descriptions to a widht of 300
+              SizedBox(
+                width: 300,
+                child: Text(
+                  'Naruto is a famous Japanese manga and anime series created by Masashi Kishimoto. It is an epic adventure about ninjas, friendship, and growing up'
+                ),
+              ),
             ],
           ),
         ),
