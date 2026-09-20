@@ -12,6 +12,20 @@ class HomePage extends StatefulWidget {
   class _HomePageState extends State<HomePage> {
   bool isManga = true;
 
+  //List containing Mangas
+  List<String> mangaList = [
+    'Naruto',
+    'One Piece',
+    'Bleach',
+  ];
+
+  //List containing Comics
+  List<String> comicList = [
+    'Spider-Man',
+    'The Boys',
+    'Batman',
+  ];
+
   @override
   Widget build(BuildContext context) {
     //Template for layout
@@ -35,6 +49,7 @@ class HomePage extends StatefulWidget {
               });
             },
           ),
+
           //Comic card
           Expanded(
             child: Center(
@@ -94,7 +109,7 @@ class HomePage extends StatefulWidget {
             ),
           ),
         ],
-      ),  
+      ),
     );
   }
 }
