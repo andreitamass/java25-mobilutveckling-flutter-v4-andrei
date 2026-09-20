@@ -12,9 +12,23 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('ComicReader'),
       ),
+      //Creates card that hold the title and children information and image in the center
       body: Center(
-        child: Text('Mina serier'),
-      ),
+        child: Card(
+          child: Column(
+            children: [
+              Text('Naruto'),
+              //Image from internet
+              Image.network(
+                'https://m.media-amazon.com/images/I/8141AtkCPLL._SL1500_.jpg',
+                width: 200,
+                height: 200,
+              ),
+
+            ],
+          ),
+        ),
+      ),  
     );
   }
 }
