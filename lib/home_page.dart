@@ -26,8 +26,17 @@ class HomePage extends StatefulWidget {
     'Batman',
   ];
 
+  //Map to store information about each
+  //Map<String, String> narutoManga = {
+  //  'title': 'Naruto',
+  //  'Description': 'A story about Ninjas',
+  //  'image': 'https://m.media-amazon.com/images/I/71WECnGLtIL._SL1200_.jpg',
+  //};
+
   @override
   Widget build(BuildContext context) {
+    //if Switch is on manga then manga is shown on main and so for comics too
+    final selectedList = isManga ? mangaList : comicList;
     //Template for layout
     return Scaffold(
       //Bar on top of title
@@ -52,60 +61,48 @@ class HomePage extends StatefulWidget {
 
           //Comic card
           Expanded(
-            child: Center(
-              child: Card(
-                child: Column(
-                  children: [
-                    // Font size for text and style
-                    Text(
-                      'Naruto',
+            //Creates cards for our comics
+            child: ListView.builder(
+              itemCount: selectedList.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  //Shows title
+                  child: ListTile(
+                    //Shows the image to the side of the title
+                    leading: selectedList[index] == 'Naruto'
+                    ? Image.network(
+                      'https://m.media-amazon.com/images/I/71WECnGLtIL._SL1200_.jpg',
+                      width: 100,
+                      height: 100,
+                    )
+                    : null,
+
+                    title: Text(
+                      //Get title from our list for manga and comics
+                      selectedList[index],
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
-                    //Image from internet
-                    Image.network(
-                      'https://m.media-amazon.com/images/I/8141AtkCPLL._SL1500_.jpg',
-                      width: 200,
-                      height: 200,
-                    ),
-
-                    //Space between text and card
-                    SizedBox(height: 10),
-
-                    //Restricting description to a width of 300
-                    SizedBox(
-                      width: 300,
-                      child: Text(
-                        'Naruto is a famous Japanese manga and anime series created by Masashi Kishimoto. It is an epic adventure about ninjas, friendship, and growing up',
-                      ),
-                    ),
-
-                    //Button that opens the details page
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailsComic(),
-                          ),
-                        );
-                      },
-                      child: Text('More Information'),
-                    ),
-
-                    //Favorite button
-                    IconButton(
+                    trailing: IconButton(
                       onPressed: () {
                         print('Comic added to favorites');
                       },
                       icon: Icon(Icons.star),
                     ),
-                  ],
-                ),
-              ),
+                    //Opens details site
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsComic(),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
             ),
           ),
         ],
